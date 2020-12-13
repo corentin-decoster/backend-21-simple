@@ -21,10 +21,10 @@ app.use(bodyParser.json());
 
 
 app.post('/user', (req, res) => {
-    //const newUse=req.body;
-    console.log(req.body.score+" score et player "+req.body.player);
-    userp.score=parseInt(req.body.score,10);
-    userp.name=req.body.player;
+    const newUse=req.body;
+    //console.log(req.body.score+" score et player "+req.body.player);
+    //userp.score=parseInt(req.body.score,10);
+    //userp.name=req.body.player;
     var fs = require('fs');
     let usersRaw = fs.readFileSync('./user.json');
     let users;
@@ -35,7 +35,7 @@ app.post('/user', (req, res) => {
     for(let user in users){
         console.log(JSON.parse(user));
     }
-    users.push(userp);
+    users.push(newUse);
     users.sort(compareContent);
     console.log(users);
     
